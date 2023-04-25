@@ -11,7 +11,7 @@ using WebAPIinSQLServer.Context;
 namespace WebAPIinSQLServer.Context.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20230425140457_Initial")]
+    [Migration("20230425142911_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
