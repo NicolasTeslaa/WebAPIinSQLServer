@@ -14,8 +14,7 @@ namespace WebAPIinSQLServer.Context.Migrations
                 name: "Usuarios",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     NomeCompleto = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>

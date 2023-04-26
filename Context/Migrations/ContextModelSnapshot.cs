@@ -9,7 +9,7 @@ using WebAPIinSQLServer.Context;
 
 namespace WebAPIinSQLServer.Context.Migrations
 {
-    [DbContext(typeof(Context))]
+    [DbContext(typeof(ContextWeb))]
     partial class ContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
@@ -23,11 +23,8 @@ namespace WebAPIinSQLServer.Context.Migrations
 
             modelBuilder.Entity("WebAPIinSQLServer.Entities.Usuario", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("NomeCompleto")
                         .IsRequired()

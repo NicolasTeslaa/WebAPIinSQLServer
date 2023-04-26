@@ -10,8 +10,8 @@ using WebAPIinSQLServer.Context;
 
 namespace WebAPIinSQLServer.Context.Migrations
 {
-    [DbContext(typeof(Context))]
-    [Migration("20230425142911_Initial")]
+    [DbContext(typeof(ContextWeb))]
+    [Migration("20230426151306_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -26,11 +26,8 @@ namespace WebAPIinSQLServer.Context.Migrations
 
             modelBuilder.Entity("WebAPIinSQLServer.Entities.Usuario", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("NomeCompleto")
                         .IsRequired()

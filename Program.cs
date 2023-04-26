@@ -4,7 +4,7 @@ using WebAPIinSQLServer.Context;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddDbContext<Context>(options =>
+builder.Services.AddDbContext<ContextWeb>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("ConexaoPadrao")));
 
 

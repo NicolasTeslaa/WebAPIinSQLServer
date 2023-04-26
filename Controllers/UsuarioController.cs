@@ -9,9 +9,8 @@ namespace WebAPI.Controllers
     [Route("[controller]")]
     public class UsuarioController : ControllerBase
     {
-        private readonly Context _context;
-
-        public UsuarioController(Context context)
+        private readonly ContextWeb _context;
+        public UsuarioController(ContextWeb context)
         {
             _context = context;
         }
@@ -21,11 +20,20 @@ namespace WebAPI.Controllers
             return _context.Usuarios;
         }
         [HttpPost("Create")]
-        public IActionResult Create(Usuario usuario)
+        public async Task<IActionResult> Create([FromBody] UsuarioCreateModel usuario)
         {
-            _context.Add(usuario);
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            var novoUsuario = new Usuario
+            {
+                Id = Guid.NewGuid().ToString(),
+                NomeCompleto = usuario.NomeCompleto,
+            };
+            _context.Usuarios.Add(novoUsuario);
 
-            _context.SaveChangesAsync();
+           await _context.SaveChangesAsync();
 
             return Ok();
         }

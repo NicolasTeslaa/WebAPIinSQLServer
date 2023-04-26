@@ -3,9 +3,9 @@ using WebAPIinSQLServer.Entities;
 
 namespace WebAPIinSQLServer.Context
 {
-    public class Context : DbContext
+    public class ContextWeb : DbContext
     {
-        public Context(DbContextOptions<Context> options) : base(options)
+        public ContextWeb(DbContextOptions<ContextWeb> options) : base(options)
         {
 
         }
